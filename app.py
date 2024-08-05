@@ -12,7 +12,6 @@ from datetime import datetime
 app = Flask(__name__)
 
 app.config.from_object(DevConfig)
-app.config['SQL_ALCHEMY_DATABASE_URI']= ('mysql+pymsql://mark:2580_Mark@localhost/rev_eng')
 
 db.init_app(app)
 CORS(app)

@@ -6,9 +6,14 @@ class Config:
     SQL_ALCHEMY_TRACK_MODIFICATIONS = config('SQL_ALCHEMY_TRACK_MODIFICATIONS', cast = bool)
 
 class DevConfig(Config):
-    SQLALCHEMY_DATABASE_URI = "mysql://mark:2580_Mark@localhost/rev_eng"
-    DEBUG = True
-    SQLALCHEMY_ECHO = True 
+    SQLALCHEMY_DATABASE_URI = config('SQLALCHEMY_DATABASE_URI')
+    DEBUG = False
+    DB_USERNAME= config('DB_USERNAME')
+    DB_PASSWORD= config('DB_PASSWORD')
+    DB_HOST= config('DB_HOST')
+    DB_PORT=3306
+    DB_NAME= config('DB_NAME')
+    SQLALCHEMY_ECHO = False 
 
 
 class ProdConfig(Config):
