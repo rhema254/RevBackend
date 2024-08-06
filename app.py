@@ -126,13 +126,6 @@ class jobResoure(Resource):
         
         return job_to_delete
 
-@app.shell_context_processor
-def make_shell_context():
-    return {
-        'db':db,
-        'jobs':jobs
-    }
-
 @app.route('/jobs/<int:id>', methods=['GET'])
 def get_job(id):
     job = Job.query.get_or_404(id)
@@ -272,6 +265,14 @@ class partnersResource(Resource):
 # @app.route('/jobs')
 # def get_jobs():
 #     return jobsResource
+
+@app.shell_context_processor
+def make_shell_context():
+    return {
+        'db':db,
+        'jobs':jobs
+        'subscribers':subscribers
+    }
 
 
 if __name__ == '__main__':
